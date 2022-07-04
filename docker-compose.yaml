@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkinsci/blueocean:1.24.7
+    restart: always
+    ports:
+      - 8080:8080
+      - 50000:50000
+    tty: true
+    user: root
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+volumes:
+  jenkins-data:
